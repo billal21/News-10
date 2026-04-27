@@ -1,0 +1,15 @@
+{
+  "short_name": "CN10",
+  "name": "CN10 Global News AI",
+  "icons": [
+    {
+      "src": "https://cdn-icons-png.flaticon.com/512/21/21601.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#dc2626",
+  "background_color": "#ffffff"
+}
