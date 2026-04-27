@@ -1,21 +1,56 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# Run and Deploy Instructions for News-10
 
-# Run and deploy your AI Studio app
+## Local Setup
+1. **Clone the repository:**  
+   ```bash
+   git clone https://github.com/billal21/News-10.git
+   cd News-10
+   ```  
+2. **Install dependencies:**  
+   Depending on your package manager, run:  
+   ```bash
+   npm install
+   ```  
+   or  
+   ```bash
+   yarn install
+   ```  
 
-This contains everything you need to run your app locally.
+3. **Environment Variables:**  
+   Create a `.env` file in the root directory based on the provided `.env.example` file. Ensure you set the necessary API keys and secrets.
 
-View your app in AI Studio: https://ai.studio/apps/f8507f00-23f5-4a1b-9d7c-eb1386b05d60
+## Build Commands
+- To build the project, run:  
+   ```bash
+   npm run build
+   ```  
+   or  
+   ```bash
+   yarn build
+   ```
 
-## Run Locally
+## Deployment Options
 
-**Prerequisites:**  Node.js
+### Vercel
+1. **Sign Up/Log In:** Log in to your Vercel account at [vercel.com](https://vercel.com).
+2. **Import Project:** Click on ‘New Project’ and import your GitHub repository.
+3. **Configure Environment Variables:** Set any necessary environment variables in Vercel that you placed in your `.env` file.
+4. **Deploy:** Vercel will automatically build and deploy your project on push.
 
+### Google Cloud Run
+1. **Build the Container:**  
+   First, ensure that you are logged in to Google Cloud SDK and your project is set. Then run:  
+   ```bash
+   gcloud builds submit --tag gcr.io/[YOUR_PROJECT_ID]/news-10
+   ```  
+2. **Deploy to Cloud Run:**  
+   ```bash
+   gcloud run deploy news-10 --image gcr.io/[YOUR_PROJECT_ID]/news-10 --platform managed
+   ```  
+3. **Set Environment Variables:** Make sure to set any required environment variables during deployment.
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
-git rev-parse main:README.md
+### Other Platforms
+- For platforms like Heroku, AWS, etc., follow their respective deployment guides. Ensure that all necessary dependencies and environment variables are properly configured.
+
+## Additional Notes
+- Always check the specific documentation for any services you are using to ensure proper configurations and best practices for deployment.
